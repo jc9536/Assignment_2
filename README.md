@@ -1,7 +1,7 @@
 Assignment_2
 ================
-Jaimie Chin  
-2023-03-02  
+Jaimie Chin
+2023-03-02
 
 ``` r
 # Load packages
@@ -333,8 +333,8 @@ summary(model_2)
     ## Multiple R-squared:  0.0236, Adjusted R-squared:  -0.0515 
     ## F-statistic: 0.3143 on 1 and 13 DF,  p-value: 0.5846
 
-The slope of the linear model is: -0.03473 The intercept of the linear
-model is: 12.78696
+- The slope of the linear model is: $-0.03473$
+- The intercept of the linear model is: $12.78696$
 
 # Question \#3
 
@@ -527,13 +527,13 @@ summary(model_4)
 Based on the output of the multiple linear regression model, both income
 and hours worked are significant predictors of happiness.
 
-The intercept is 15.07 (statistically significant), which tells us that
-the expected happiness level when income and hours worked are both 0 is
-about 15 (on a scale of 1-10).
+The intercept is $15.07$ (statistically significant), which tells us
+that the expected happiness level when income and hours worked are both
+0 is about $15$ (on a scale of 1-10).
 
 The estimate coefficient for income tells us that for each unit increase
-in income, the expected happiness level increases by 0.0003134, holding
-hours worked constant.
+in income, the expected happiness level increases by $0.0003134$,
+holding hours worked constant.
 
 On the other hand, the coefficient estimate for hours worked tells us
 that for each additional hour worked, the expected happiness level
@@ -604,15 +604,15 @@ The most appropriate measure of central tendency would mode for this
 dataset. This is because the dataset is relatively small and contains
 discrete data (number of wins for different teams). The data is not
 normally distributed so the mean and median would not be the best
-measures of central tendency. It is more likely to randomly pick 21 wins
-from the data compared to picking 20 (median and mean when rounded), so
-mode would be the best measure of central tendency.
+measures of central tendency. It is more likely to randomly pick $21$
+wins from the data compared to picking $20$ (median and mean when
+rounded), so mode would be the best measure of central tendency.
 
 The most appropriate measure of dispersion for this dataset is the
 range. Again with a small dataset of 5 discrete values, standard
 deviation or variance would not be meaningful because they are better
 suited to continuous values. Also, since the data does not contain an
-outlier, the range (3) makes the most sense as the most appropriate
+outlier, the range ($3$) makes the most sense as the most appropriate
 measure of dispersion that gives us an idea of how spread out the data
 is.
 
