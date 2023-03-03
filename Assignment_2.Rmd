@@ -165,8 +165,8 @@ model_2 = lm(friends ~ org, df_2)
 summary(model_2)
 ```
 
-The slope of the linear model is: -0.03473
-The intercept of the linear model is: 12.78696
+* The slope of the linear model is: $-0.03473$
+* The intercept of the linear model is: $12.78696$
 
 # Question #3
 A researcher was interested in what contributes to people’s happiness, and specifically if money can buy happiness. They collected data from people who rated their happiness on a scale from 1 – 10 `happiness`, the amount of hours they work per work `hours_worked`, and their income level `income`. The data can be found in APS_data2_q3.csv. 
@@ -244,9 +244,9 @@ summary(model_4)
 
 Based on the output of the multiple linear regression model, both income and hours worked are significant predictors of happiness. 
 
-The intercept is 15.07 (statistically significant), which tells us that the expected happiness level when income and hours worked are both 0 is about 15 (on a scale of 1-10). 
+The intercept is $15.07$ (statistically significant), which tells us that the expected happiness level when income and hours worked are both 0 is about $15$ (on a scale of 1-10). 
 
-The estimate coefficient for income tells us that for each unit increase in income, the expected happiness level increases by 0.0003134, holding hours worked constant. 
+The estimate coefficient for income tells us that for each unit increase in income, the expected happiness level increases by $0.0003134$, holding hours worked constant. 
 
 On the other hand, the coefficient estimate for hours worked tells us that for each additional hour worked, the expected happiness level decreases by 0.7375, holding income constant. 
 
@@ -287,9 +287,9 @@ df_5
 
 ## 1. What is the appropriate measure of central tendency? What is the appropriate measure of dispersion? For this question, only consider measures of central tendency and dispersion that we have discussed in class. (4 pts)
 
-The most appropriate measure of central tendency would mode for this dataset. This is because the dataset is relatively small and contains discrete data (number of wins for different teams). The data is not normally distributed so the mean and median would not be the best measures of central tendency. It is more likely to randomly pick 21 wins from the data compared to picking 20 (median and mean when rounded), so mode would be the best measure of central tendency. 
+The most appropriate measure of central tendency would mode for this dataset. This is because the dataset is relatively small and contains discrete data (number of wins for different teams). The data is not normally distributed so the mean and median would not be the best measures of central tendency. It is more likely to randomly pick $21$ wins from the data compared to picking $20$ (median and mean when rounded), so mode would be the best measure of central tendency. 
 
-The most appropriate measure of dispersion for this dataset is the range. Again with a small dataset of 5 discrete values, standard deviation or variance would not be meaningful because they are better suited to continuous values. Also, since the data does not contain an outlier, the range (3) makes the most sense as the most appropriate measure of dispersion that gives us an idea of how spread out the data is. 
+The most appropriate measure of dispersion for this dataset is the range. Again with a small dataset of 5 discrete values, standard deviation or variance would not be meaningful because they are better suited to continuous values. Also, since the data does not contain an outlier, the range ($3$) makes the most sense as the most appropriate measure of dispersion that gives us an idea of how spread out the data is. 
 
 ## 2. Create a plot of the distribution (choose between a scatterplot `geom_point`, histogram `geom_hist`, or bar plot `geom_bar`). Make sure to choose the appropriate plot for the type of data we have. Be sure to label the x and y axes, and the name of each team. (6 pts) 
 
