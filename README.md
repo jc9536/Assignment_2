@@ -1,7 +1,7 @@
 Assignment_2
 ================
-Jaimie Chin
-2023-03-02
+Jaimie Chin  
+2023-03-02  
 
 ``` r
 # Load packages
