@@ -114,9 +114,9 @@ summary(model_1)
 ## 4. Given the slope, what do you expect the trend of the data to be (e.g., “as X increases, y…”) (3 pts)
 
 Given the slope, I would expect the trend of the data to be: as
-Intropspection increases, Optimism increases (as X increases, y
+Introspection increases, Optimism increases (as X increases, y
 increases). This would be a positive linear relationship because the
-slop of the linear model is a positive value.
+slope of the linear model is a positive value.
 
 ## 5. If “Introspection” has a value of 75, what would be the predicted value of “Optimism”? Show your work. (3 pts)
 
