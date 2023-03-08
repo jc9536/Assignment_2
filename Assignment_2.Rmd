@@ -225,9 +225,6 @@ partial
 
 sprintf("The partial correlation is: %f", partial$estimate)
 ```
-```{r}
-
-```
 
 ## 7. How does this correlation compare to the one you ran in Part 1? (2 pts)
 
