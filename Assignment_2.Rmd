@@ -2,7 +2,7 @@
 title: "Assignment_2"
 author: "Jaimie Chin"
 date: "2023-03-02"
-output: github_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r, echo = T, error=FALSE, message=FALSE}
 # Load packages
 library(tidyverse)
+library(ppcor)
 ```
 
 # Question 1 
@@ -192,7 +193,7 @@ sprintf("The Pearson correlation between participants' income and happiness is: 
 
 ## 2. Interpret the correlation. (2 pts)
 
-The Pearsoncorrelation suggests that there is a very weak negative relationship between income and happiness. In other words there is a very weak relationship where as income increases, happiness will decrease. 
+The Pearson correlation suggests that there is a very weak negative relationship between income and happiness. In other words there is a very weak relationship where as income increases, happiness will decrease. 
 
 ## 3. Run a simple linear regression using summary() and lm() where income is predicting happiness. (3 pts)
 
@@ -219,18 +220,22 @@ The variable `hours_work` may be of interest to us if we are looking at the rela
 ```{r}
 # Find the partial correlation between participant's income and happiness
 # accounting for the number of hours someone worked
-partial = cor.test(df_3$income, df_3$happiness, 
-         partial.cor = df_3$hours_worked)
+partial = pcor.test(df_3$income, df_3$happiness, df_3$hours_worked)
 partial
 
 sprintf("The partial correlation is: %f", partial$estimate)
 ```
+```{r}
+
+```
 
 ## 7. How does this correlation compare to the one you ran in Part 1? (2 pts)
 
-The partial correlation coefficient is the same as the Pearson correlation coefficient in Part 1, indicating that the number of hours worked does not have a significant effect on the relationship between income and happiness.
+The partial correlation between `income` and `happiness` controlling for `hours_worked` ($0.7462579$) different in both strength and direction from the correlation between `income` and `happiness` that in part 1 ($-0.01975525$). This suggests that the relationship between `income` and `happiness` is confounded by the number of `hours_worked`, and that the relationship becomes much stronger once we control for the number of `hours_worked`.
 
-This is because by running a partial correlation between `income` and `happiness` while controlling for a `hours_worked`, the resulting correlation coefficient reflects the relationship between `income` and `happiness` after removing the shared variance with `hours_worked`. Because `hours_worked` has no significant effect on the relationship between `income` and `happiness`, the partial correlation coefficient will be the same as the Pearson correlation coefficient.
+If we just looked at the correlation between `income` and `happiness` without considering the number of `hours_worked`, we would miss an important aspect of the relationship between these two variables. By controlling for the number of `hours_worked`, we can get a better estimate of the true relationship between `income` and `happiness`.
+
+The reason for this is that partial correlation measures the relationship between two variables while controlling for the effects of other variables. In this case, the partial correlation between `income` and `happiness` controlling for `hours_worked` would be the correlation between the residuals of the regression of `income` on `hours_worked` and the residuals of the regression of `happiness` on `hours_worked`.
 
 ## 8. Now run a multiple linear regression that uses both income and hours worked to predict happiness (3 pts)
 
