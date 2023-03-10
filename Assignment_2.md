@@ -6,6 +6,7 @@ Jaimie Chin
 ``` r
 # Load packages
 library(tidyverse)
+library(ppcor)
 ```
 
 # Question 1
@@ -278,7 +279,7 @@ sprintf("The Spearman correlation is: %s", corr)
 ## 6. How does it compare to Pearson’s r? (1 pt)
 
 As expected, the Spearman correlation is similar to the Pearson
-correlation (0.007 difference with Spearman being ever so slightly
+correlation ($0.007$ difference with Spearman being ever so slightly
 stronger). The Spearman correlation also suggests that there is a weak
 negative relationship between organizational self-rating and social
 network. In other words there is a weak relationship where as
@@ -393,7 +394,7 @@ sprintf("The Pearson correlation between participants' income and happiness is: 
 
 ## 2. Interpret the correlation. (2 pts)
 
-The Pearsoncorrelation suggests that there is a very weak negative
+The Pearson correlation suggests that there is a very weak negative
 relationship between income and happiness. In other words there is a
 very weak relationship where as income increases, happiness will
 decrease.
@@ -429,13 +430,13 @@ summary(model_3)
 
 No, income is not a good predictor of happiness. According to our linear
 model summary, the p-value associated with the coefficient estimate for
-income (-5.502e-06) is not significant at 0.733. This indicates that
+income ($-5.502e-06$) is not significant at $0.733$. This indicates that
 there is not enough evidence to reject the null hypothesis that there is
 no relationship between income and happiness.
 
-Furthermore, the Multiple R-squared value is 0.0003903, which indicates
-that only a very small proportion (0.04%) of the variation in happiness
-is explained by the variation in income.
+Furthermore, the Multiple R-squared value is $0.0003903$, which
+indicates that only a very small proportion ($0.04$%) of the variation
+in happiness is explained by the variation in income.
 
 Also, the Adjusted R-squared value is negative, which suggests that the
 model is overfit. In other words, adding income as a predictor did not
@@ -456,43 +457,41 @@ affect their level of happiness.
 ``` r
 # Find the partial correlation between participant's income and happiness
 # accounting for the number of hours someone worked
-partial = cor.test(df_3$income, df_3$happiness, 
-         partial.cor = df_3$hours_worked)
+partial = pcor.test(df_3$income, df_3$happiness, df_3$hours_worked)
 partial
 ```
 
-    ## 
-    ##  Pearson's product-moment correlation
-    ## 
-    ## data:  df_3$income and df_3$happiness
-    ## t = -0.3411, df = 298, p-value = 0.7333
-    ## alternative hypothesis: true correlation is not equal to 0
-    ## 95 percent confidence interval:
-    ##  -0.13269923  0.09369519
-    ## sample estimates:
-    ##         cor 
-    ## -0.01975525
+    ##    estimate      p.value statistic   n gp  Method
+    ## 1 0.7462579 1.979461e-54  19.32043 300  1 pearson
 
 ``` r
 sprintf("The partial correlation is: %f", partial$estimate)
 ```
 
-    ## [1] "The partial correlation is: -0.019755"
+    ## [1] "The partial correlation is: 0.746258"
 
 ## 7. How does this correlation compare to the one you ran in Part 1? (2 pts)
 
-The partial correlation coefficient is the same as the Pearson
-correlation coefficient in Part 1, indicating that the number of hours
-worked does not have a significant effect on the relationship between
-income and happiness.
+The partial correlation between `income` and `happiness` controlling for
+`hours_worked` ($0.7462579$) different in both strength and direction
+from the correlation between `income` and `happiness` that in part 1
+($-0.01975525$). This suggests that the relationship between `income`
+and `happiness` is confounded by the number of `hours_worked`, and that
+the relationship becomes much stronger once we control for the number of
+`hours_worked`.
 
-This is because by running a partial correlation between `income` and
-`happiness` while controlling for a `hours_worked`, the resulting
-correlation coefficient reflects the relationship between `income` and
-`happiness` after removing the shared variance with `hours_worked`.
-Because `hours_worked` has no significant effect on the relationship
-between `income` and `happiness`, the partial correlation coefficient
-will be the same as the Pearson correlation coefficient.
+If we just looked at the correlation between `income` and `happiness`
+without considering the number of `hours_worked`, we would miss an
+important aspect of the relationship between these two variables. By
+controlling for the number of `hours_worked`, we can get a better
+estimate of the true relationship between `income` and `happiness`.
+
+The reason for this is that partial correlation measures the
+relationship between two variables while controlling for the effects of
+other variables. In this case, the partial correlation between `income`
+and `happiness` controlling for `hours_worked` would be the correlation
+between the residuals of the regression of `income` on `hours_worked`
+and the residuals of the regression of `happiness` on `hours_worked`.
 
 ## 8. Now run a multiple linear regression that uses both income and hours worked to predict happiness (3 pts)
 
@@ -529,7 +528,7 @@ and hours worked are significant predictors of happiness.
 
 The intercept is $15.07$ (statistically significant), which tells us
 that the expected happiness level when income and hours worked are both
-0 is about $15$ (on a scale of 1-10).
+0 is about $15$ (on a scale of $1-10$).
 
 The estimate coefficient for income tells us that for each unit increase
 in income, the expected happiness level increases by $0.0003134$,
@@ -608,13 +607,17 @@ measures of central tendency. It is more likely to randomly pick $21$
 wins from the data compared to picking $20$ (median and mean when
 rounded), so mode would be the best measure of central tendency.
 
-The most appropriate measure of dispersion for this dataset is the
-range. Again with a small dataset of 5 discrete values, standard
-deviation or variance would not be meaningful because they are better
-suited to continuous values. Also, since the data does not contain an
-outlier, the range ($3$) makes the most sense as the most appropriate
-measure of dispersion that gives us an idea of how spread out the data
-is.
+There is no appropriate measure of dispersion for this dataset. The
+dataset provided consists of a categorical variable (`Teams`) and a
+discrete numerical variable (`Wins`) that represents the frequency of
+wins for each team. Since the `Wins` variable is discrete, it can only
+take a limited number of values, and there are no intermediate values
+between those points – it is not continuous (ratio or interval) nor is
+it qualitative data (ordinal or nominal). When it comes to measures of
+dispersion such as variance or standard deviation, these are appropriate
+for continuous data, where there is a meaningful distance between the
+data points. However, since we are just dealing with frequencies rather
+than actual values on an integer scale, they are inappropriate measures.
 
 ## 2. Create a plot of the distribution (choose between a scatterplot `geom_point`, histogram `geom_hist`, or bar plot `geom_bar`). Make sure to choose the appropriate plot for the type of data we have. Be sure to label the x and y axes, and the name of each team. (6 pts)
 

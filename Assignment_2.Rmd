@@ -2,7 +2,7 @@
 title: "Assignment_2"
 author: "Jaimie Chin"
 date: "2023-03-02"
-output: pdf_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -138,7 +138,7 @@ sprintf("The Spearman correlation is: %s", corr)
 
 ## 6. How does it compare to Pearson’s r? (1 pt)
 
-As expected, the Spearman correlation is similar to the Pearson correlation (0.007 difference with Spearman being ever so slightly stronger). The Spearman correlation also suggests that there is a weak negative relationship between organizational self-rating and social network. In other words there is a weak relationship where as organizational self-rating increases, social network will decrease. 
+As expected, the Spearman correlation is similar to the Pearson correlation ($0.007$ difference with Spearman being ever so slightly stronger). The Spearman correlation also suggests that there is a weak negative relationship between organizational self-rating and social network. In other words there is a weak relationship where as organizational self-rating increases, social network will decrease. 
 
 ## 7. Create a scatter plot of the original data (2 pts)
 
@@ -205,9 +205,9 @@ summary(model_3)
 
 ## 4. Based on this analysis, is income a good predictor of happiness? Why or why not? (2 pts)
 
-No, income is not a good predictor of happiness. According to our linear model summary, the p-value associated with the coefficient estimate for income (-5.502e-06) is not significant at 0.733. This indicates that there is not enough evidence to reject the null hypothesis that there is no relationship between income and happiness.
+No, income is not a good predictor of happiness. According to our linear model summary, the p-value associated with the coefficient estimate for income ($-5.502e-06$) is not significant at $0.733$. This indicates that there is not enough evidence to reject the null hypothesis that there is no relationship between income and happiness.
 
-Furthermore, the Multiple R-squared value is 0.0003903, which indicates that only a very small proportion (0.04%) of the variation in happiness is explained by the variation in income. 
+Furthermore, the Multiple R-squared value is $0.0003903$, which indicates that only a very small proportion ($0.04$%) of the variation in happiness is explained by the variation in income. 
 
 Also, the Adjusted R-squared value is negative, which suggests that the model is overfit. In other words, adding income as a predictor did not improve the fit of the model. 
 
@@ -246,7 +246,7 @@ summary(model_4)
 
 Based on the output of the multiple linear regression model, both income and hours worked are significant predictors of happiness. 
 
-The intercept is $15.07$ (statistically significant), which tells us that the expected happiness level when income and hours worked are both 0 is about $15$ (on a scale of 1-10). 
+The intercept is $15.07$ (statistically significant), which tells us that the expected happiness level when income and hours worked are both 0 is about $15$ (on a scale of $1-10$). 
 
 The estimate coefficient for income tells us that for each unit increase in income, the expected happiness level increases by $0.0003134$, holding hours worked constant. 
 
@@ -291,7 +291,7 @@ df_5
 
 The most appropriate measure of central tendency would mode for this dataset. This is because the dataset is relatively small and contains discrete data (number of wins for different teams). The data is not normally distributed so the mean and median would not be the best measures of central tendency. It is more likely to randomly pick $21$ wins from the data compared to picking $20$ (median and mean when rounded), so mode would be the best measure of central tendency. 
 
-The most appropriate measure of dispersion for this dataset is the range. Again with a small dataset of 5 discrete values, standard deviation or variance would not be meaningful because they are better suited to continuous values. Also, since the data does not contain an outlier, the range ($3$) makes the most sense as the most appropriate measure of dispersion that gives us an idea of how spread out the data is. 
+There is no appropriate measure of dispersion for this dataset. The dataset provided consists of a categorical variable (`Teams`) and a discrete numerical variable (`Wins`) that represents the frequency of wins for each team. Since the `Wins` variable is discrete, it can only take a limited number of values, and there are no intermediate values between those points -- it is not continuous (ratio or interval) nor is it qualitative data (ordinal or nominal). When it comes to measures of dispersion such as variance or standard deviation, these are appropriate for continuous data, where there is a meaningful distance between the data points. However, since we are just dealing with frequencies rather than actual values on an integer scale, they are inappropriate measures.
 
 ## 2. Create a plot of the distribution (choose between a scatterplot `geom_point`, histogram `geom_hist`, or bar plot `geom_bar`). Make sure to choose the appropriate plot for the type of data we have. Be sure to label the x and y axes, and the name of each team. (6 pts) 
 
