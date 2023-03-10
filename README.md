@@ -627,9 +627,7 @@ colors = c("Orange" = "#FDB813", "Blue" = "#0072C6", "Green" = "#009F6B",
 ggplot(data = df_5) + 
   geom_bar(aes(x = Teams, y = Wins, fill = Teams), stat = "identity") +
   scale_fill_manual(values = colors)+
-  theme_minimal(base_size = 12,
-                base_line_size = 12/22,
-                base_rect_size = 12/22) +
+  theme_minimal() +
   labs(x = "Team",
        y = "Frequency of Wins",
        title = "Distribution of Wins by Team")
